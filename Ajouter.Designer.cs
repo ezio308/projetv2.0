@@ -3,7 +3,7 @@ using System;
 
 namespace projet
 {
-    partial class Ajouter
+    partial class ajouter
     {
         /// <summary>
         /// Required designer variable.
@@ -61,9 +61,9 @@ namespace projet
             this.login = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.grade1 = new System.Windows.Forms.ListBox();
-            this.nbrenf1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.grade = new System.Windows.Forms.TextBox();
+            this.nbrenf = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label16
@@ -297,7 +297,7 @@ namespace projet
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button1.Location = new System.Drawing.Point(619, 338);
             this.button1.Name = "button1";
@@ -314,40 +314,6 @@ namespace projet
             this.dateTimePicker1.Size = new System.Drawing.Size(124, 22);
             this.dateTimePicker1.TabIndex = 65;
             // 
-            // grade1
-            // 
-            this.grade1.FormattingEnabled = true;
-            this.grade1.ItemHeight = 16;
-            this.grade1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.grade1.Location = new System.Drawing.Point(391, 175);
-            this.grade1.Name = "grade1";
-            this.grade1.Size = new System.Drawing.Size(100, 20);
-            this.grade1.TabIndex = 66;
-            // 
-            // nbrenf1
-            // 
-            this.nbrenf1.FormattingEnabled = true;
-            this.nbrenf1.ItemHeight = 16;
-            this.nbrenf1.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.nbrenf1.Location = new System.Drawing.Point(638, 175);
-            this.nbrenf1.Name = "nbrenf1";
-            this.nbrenf1.Size = new System.Drawing.Size(100, 20);
-            this.nbrenf1.TabIndex = 67;
-            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
@@ -361,15 +327,29 @@ namespace projet
             this.listBox2.Size = new System.Drawing.Size(100, 20);
             this.listBox2.TabIndex = 68;
             // 
-            // Ajouter
+            // grade
+            // 
+            this.grade.Location = new System.Drawing.Point(391, 175);
+            this.grade.Name = "grade";
+            this.grade.Size = new System.Drawing.Size(100, 22);
+            this.grade.TabIndex = 69;
+            // 
+            // nbrenf
+            // 
+            this.nbrenf.Location = new System.Drawing.Point(638, 172);
+            this.nbrenf.Name = "nbrenf";
+            this.nbrenf.Size = new System.Drawing.Size(100, 22);
+            this.nbrenf.TabIndex = 70;
+            // 
+            // ajouter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nbrenf);
+            this.Controls.Add(this.grade);
             this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.nbrenf1);
-            this.Controls.Add(this.grade1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label16);
@@ -401,7 +381,7 @@ namespace projet
             this.Controls.Add(this.nomconjoint);
             this.Controls.Add(this.login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Ajouter";
+            this.Name = "ajouter";
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Ajouter_Load);
             this.ResumeLayout(false);
@@ -445,9 +425,9 @@ namespace projet
         private System.Windows.Forms.TextBox login;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ListBox grade1;
-        private System.Windows.Forms.ListBox nbrenf1;
         private System.Windows.Forms.ListBox listBox2;
-        private object ajouter;
+        private object ajuter;
+        private System.Windows.Forms.TextBox grade;
+        private System.Windows.Forms.TextBox nbrenf;
     }
 }

@@ -31,7 +31,7 @@ namespace projet
             Deconnecter();
             cnx.Open();
 
-            cmd = new SqlCommand("select * from users where ID='" + x + "'", cnx);
+            cmd = new SqlCommand("select * from users where login='" + x + "'", cnx);
 
             Reader = cmd.ExecuteReader();
             Reader.Read();
@@ -47,9 +47,9 @@ namespace projet
             etatcivil.Text = Convert.ToString(Reader["etatcivil"]);
             codecn.Text = Convert.ToString(Reader["codecn"]);
             nomconjoint.Text = Convert.ToString(Reader["nomconjoint"]);
-            prenomconjoint.Text = Convert.ToString(Reader["prnomconjoint"]);
+            prenomconjoint.Text = Convert.ToString(Reader["prenomconjoint"]);
             numtel.Text = Convert.ToString(Reader["tel"]);
-            nbrenf.Text = Convert.ToString(Reader["nbrenf"]);
+            nbrenf.Text = Convert.ToString(Reader["nbrenfants"]);
             Date.Text = Convert.ToString(Reader["datenaiss"]);
 
 

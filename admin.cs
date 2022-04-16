@@ -22,6 +22,13 @@ namespace projet
         {
             InitializeComponent();
         }
+        
+        public void dataGridView1_UserDeletingRow(object sender, DataGridViewCellEventArgs e)    
+        {
+            
+           
+           
+        }
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -30,7 +37,7 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ajouter ajputer = new Ajouter();
+            ajouter ajputer = new ajouter();
 
             ajputer.Show();
         }
@@ -73,13 +80,11 @@ namespace projet
         {
             Deconnecter();
             cnx.Open();
-            if (ID.Text == "")
-            {
-                MessageBox.Show("Veuillez remplir le champ ID", "MERCI ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            { 
-                cmd = new SqlCommand("delete  from users where ID='" + ID.Text + "'", cnx);
+            
+            
+            
+                cmd = new SqlCommand("delete from users where login =  '" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value) + "'", cnx);
+
 
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
@@ -93,27 +98,21 @@ namespace projet
 
                 }
                 cnx.Close();
-            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {   if (ID.Text == "")
-            {
-                MessageBox.Show("Veuillez remplir le champ ID", "MERCI ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-            else
-            {
-                modifier modifier = new modifier(ID.Text);
+        {   
+                modifier modifier = new modifier(Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value));
                 modifier.Show();
-            }
+            
         }
 
        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            dataGridView1.Columns[0].ReadOnly = true;
         }
 
         private void button6_Click_1(object sender, EventArgs e)
@@ -123,7 +122,8 @@ namespace projet
 
         private void button7_Click(object sender, EventArgs e)
         {
-            pdfbulle bull = new pdfbulle(ID.Text);
+            string s = "sami";
+            pdfbulle bull = new pdfbulle(s);
             bull.Show();
         }
     }

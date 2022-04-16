@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
-using iTextSharp.text;
+/*using iTextSharp.text;
 using iTextSharp.text.pdf; 
-
+*/
 
 namespace projet
 {
@@ -43,7 +43,7 @@ namespace projet
             cnx.Close();
 
         }
-        public void exportgridtopdf(DataGridView dgw, String filename)
+  /*      public void exportgridtopdf(DataGridView dgw, String filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
             PdfPTable pdftable = new PdfPTable(dgw.Columns.Count);
@@ -85,7 +85,7 @@ namespace projet
                 }
             }
 
-        }
+        }*/
         public pdfbulle(string str_value)
         {   
             InitializeComponent();
@@ -99,7 +99,7 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
-           exportgridtopdf(dataGridView1, "ListeBulletin");
+           //exportgridtopdf(dataGridView1, "ListeBulletin");
         }
     }
 }

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="gadmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gadmin.Designer.cs">
+      <DependentUpon>gadmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="pdfbulle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,11 +101,11 @@
     <Compile Include="agent.Designer.cs">
       <DependentUpon>agent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ajouter.cs">
+    <Compile Include="ajouter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ajouter.Designer.cs">
-      <DependentUpon>Ajouter.cs</DependentUpon>
+    <Compile Include="ajouter.Designer.cs">
+      <DependentUpon>ajouter.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="agent.resx">
       <DependentUpon>agent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gadmin.resx">
+      <DependentUpon>gadmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pdfbulle.resx">
       <DependentUpon>pdfbulle.cs</DependentUpon>
@@ -127,8 +136,8 @@
     <EmbeddedResource Include="admin.resx">
       <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ajouter.resx">
-      <DependentUpon>Ajouter.cs</DependentUpon>
+    <EmbeddedResource Include="ajouter.resx">
+      <DependentUpon>ajouter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

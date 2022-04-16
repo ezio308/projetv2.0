@@ -29,6 +29,7 @@ namespace projet
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,7 +42,7 @@ namespace projet
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button1.Location = new System.Drawing.Point(12, 300);
             this.button1.Name = "button1";
@@ -53,6 +54,9 @@ namespace projet
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(198, 109);
             this.dataGridView1.Name = "dataGridView1";
@@ -64,7 +68,7 @@ namespace projet
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button2.Location = new System.Drawing.Point(12, 445);
             this.button2.Name = "button2";
@@ -76,7 +80,7 @@ namespace projet
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.BackColor = System.Drawing.Color.SteelBlue;
             this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button3.Location = new System.Drawing.Point(12, 109);
             this.button3.Name = "button3";
@@ -96,7 +100,7 @@ namespace projet
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.BackColor = System.Drawing.Color.SteelBlue;
             this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button4.Location = new System.Drawing.Point(12, 205);
             this.button4.Name = "button4";
@@ -108,7 +112,7 @@ namespace projet
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.BackColor = System.Drawing.Color.SteelBlue;
             this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button5.Location = new System.Drawing.Point(433, 522);
             this.button5.Name = "button5";
@@ -122,6 +126,7 @@ namespace projet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(808, 612);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
