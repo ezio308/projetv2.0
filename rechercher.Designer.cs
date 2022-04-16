@@ -38,6 +38,7 @@ namespace projet
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HighlightText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -48,7 +49,7 @@ namespace projet
             // 
             // clear
             // 
-            this.clear.BackColor = System.Drawing.SystemColors.ControlText;
+            this.clear.BackColor = System.Drawing.Color.SteelBlue;
             this.clear.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.clear.Location = new System.Drawing.Point(72, 305);
             this.clear.Name = "clear";
@@ -60,7 +61,7 @@ namespace projet
             // 
             // valider
             // 
-            this.valider.BackColor = System.Drawing.SystemColors.ControlText;
+            this.valider.BackColor = System.Drawing.Color.SteelBlue;
             this.valider.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.valider.Location = new System.Drawing.Point(322, 305);
             this.valider.Name = "valider";

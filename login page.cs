@@ -38,7 +38,7 @@ namespace projet
         private void button2_Click(object sender, EventArgs e)
         {
 
-            admin admin = new admin();
+            gadmin gadmin = new gadmin();
             agent agent = new agent();
             employe employe = new employe();
 
@@ -73,7 +73,7 @@ namespace projet
                     if (x == "1")
                     {
                         this.Hide();
-                        admin.Show();
+                        gadmin.Show();
                     }
                     else if (x == "2")
                     {
@@ -105,6 +105,11 @@ namespace projet
         {
             this.Hide();
             
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
