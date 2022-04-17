@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
-/*using iTextSharp.text;
-using iTextSharp.text.pdf; 
-*/
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 
 namespace projet
 {
@@ -36,14 +36,15 @@ namespace projet
         {
             deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("SELECT  bulletin.bulletinNum as ID ,CONVERT(varchar,bulletin.dateDepot,10) as 'Date de depot',bulletin.acte as 'Acte',bulletin.frais as 'Frais demandés',bulletin.idEmp as 'Id Employé',concat(employee.nomEmp,' ',employee.prenomEmp) as 'Nom et Prénom' from bulletin,employee where employee.idEmp=bulletin.idEmp and bulletin.idEmp = '" + id + "'", cnx);
+            cmd = new SqlCommand("SELECT  bulletins.NUMBULL as ID ,CONVERT(varchar,bulletins.dateDepot,10) as 'Date de depot',bulletins.actedesc as 'Acte',bulletins.actefrais as 'Frais demandés',bulletins.login as 'Id Employé',concat(users.name,' ',users.lastname) as 'Nom et Prénom' from bulletins,users where users.login=bulletins.login and bulletins.login = '" + id + "'", cnx);
+            //  cmd = new SqlCommand("SELECT codecn from users where login = 'mohsen'", cnx);
             Reader = cmd.ExecuteReader();
             Table.Load(Reader);
             dataGridView1.DataSource = Table;
             cnx.Close();
 
         }
-  /*      public void exportgridtopdf(DataGridView dgw, String filename)
+        public void exportgridtopdf(DataGridView dgw, String filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
             PdfPTable pdftable = new PdfPTable(dgw.Columns.Count);
@@ -52,6 +53,7 @@ namespace projet
             pdftable.HorizontalAlignment = Element.ALIGN_LEFT;
             pdftable.DefaultCell.BorderWidth = 1;
             iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+
             //Add Header
             foreach (DataGridViewColumn column in dgw.Columns)
             {
@@ -65,7 +67,7 @@ namespace projet
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    pdftable.AddCell(new Phrase(cell.Value.ToString(), text));
+                    pdftable.AddCell(new Phrase(cell.Value?.ToString(), text));
                 }
             }
             var savefiledialoge = new SaveFileDialog();
@@ -85,11 +87,13 @@ namespace projet
                 }
             }
 
-        }*/
-        public pdfbulle(string str_value)
-        {   
+        }
+
+        string s = "mohsen";
+        public pdfbulle()
+        {
             InitializeComponent();
-            remplirGrid(str_value);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -99,7 +103,19 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
-           //exportgridtopdf(dataGridView1, "ListeBulletin");
+            exportgridtopdf(dataGridView1, "ListeBulletin");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+       
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            remplirGrid(textBox1.Text);
+
         }
     }
 }

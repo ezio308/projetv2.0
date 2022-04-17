@@ -36,9 +36,23 @@ namespace projet
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string s = "sami";
-            pdfbulle bpdf = new pdfbulle(s);
+            string s = "mohsen";
+            pdfbulle bpdf = new pdfbulle();
             bpdf.Show();
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this .Hide();
+            somme som = new somme();
+            som.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gadmbull ga = new gadmbull();
+            ga.Show();
 
         }
     }

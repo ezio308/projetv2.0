@@ -51,11 +51,24 @@ namespace projet
         {
 
         }
+        public void Remplirgrid1()
+        {
 
+            Deconnecter();
+            cnx.Open();
+            cmd = new SqlCommand("select * from users where login='" + textBox1.Text + "'", cnx);
+
+            Reader = cmd.ExecuteReader();
+            table.Load(Reader);
+            dataGridView1.DataSource = table;
+            cnx.Close();
+        }
         private void button4_Click(object sender, EventArgs e)
         {
+            /*this.Hide();
             rechercher rechercher = new rechercher();
-            rechercher.Show();
+            rechercher.Show();*/
+            Remplirgrid1();
         }
         public void Deconnecter()//ay bd ma7loula tssakerha//
         {
@@ -102,8 +115,9 @@ namespace projet
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {   
-                modifier modifier = new modifier(Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value));
+        {
+            this.Hide(); 
+            modifier modifier = new modifier(Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value));
                 modifier.Show();
             
         }
@@ -122,9 +136,18 @@ namespace projet
 
         private void button7_Click(object sender, EventArgs e)
         {
+            this.Hide();  
             string s = "sami";
-            pdfbulle bull = new pdfbulle(s);
+            pdfbulle bull = new pdfbulle();
             bull.Show();
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            int index = this.dataGridView1.CurrentRow.Index;
+            this.dataGridView1.Rows.RemoveAt(index);
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace projet
         {
 
             gadmin gadmin = new gadmin();
-            agent agent = new agent();
+            gagent agent = new gagent();
             employe employe = new employe();
 
 
