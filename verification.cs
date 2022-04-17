@@ -70,18 +70,20 @@ namespace projet
         
             if (pl == 0)
             {
-                cmd = new SqlCommand("update bulletins set reponse='"+0+"'  where login='" + id + "'and datedepot='"+ date + "'and NUMBULL='" + bull + "'", cnx);
+                cmd = new SqlCommand("update bulletins set reponse= ' refusé '  where login='" + id + "'and datedepot='"+ date + "'and NUMBULL='" + bull + "'", cnx);
 
             }
             else if (p2 >= 0)
             {
-                cmd = new SqlCommand("update bulletins set reponse='" + 1 + "'  where login='" + id + "'and datedepot='" + date+ "'and NUMBULL='"+bull+"'", cnx);
+                cmd = new SqlCommand("update bulletins set reponse=' accepté '  where login='" + id + "'and datedepot='" + date+ "'and NUMBULL='"+bull+"'", cnx);
                 cmd1 = new SqlCommand("update users set plafond='" + p2 + "'  where login='" + id + "'", cnx);
                 cmd1.ExecuteNonQuery();  
             }
             else if (p2<0)
             { 
-                cmd = new SqlCommand("update bulletins set reponse='" + 2 + "'  where login='" + id + "'and datedepot='" + date + "'and NUMBULL='" + bull + "'", cnx);
+                cmd = new SqlCommand("update bulletins set reponse=' accepté '  where login='" + id + "'and datedepot='" + date + "'and NUMBULL='" + bull + "'", cnx);
+                cmd1 = new SqlCommand("update users set plafond='" + p2 + "'  where login='" + id + "'", cnx);
+
                 cmd1.ExecuteNonQuery();
             }
             cmd.ExecuteNonQuery();

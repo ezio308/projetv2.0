@@ -40,13 +40,13 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            remplirgrid();
+           
         }
         public void remplirgrid()
         {
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from bulletins ", cnx);
+            cmd = new SqlCommand("select * from users ", cnx);
             Reader = cmd.ExecuteReader();
             table.Load(Reader);
             dataGridView1.DataSource = table;
@@ -56,51 +56,36 @@ namespace projet
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            dataGridView1.Columns[0].ReadOnly = true;
 
 
         }
-        private void dataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                string value1 = row.Cells[0].Value.ToString();
-                string value2 = row.Cells[1].Value.ToString();
-                //...
-            }
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
-            saisie saisie = new saisie();
-            saisie.Show();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            remplirgrid1();
+            this.Hide();
+            modifiers modifiers = new modifiers(Convert.ToString(dataGridView2.CurrentRow.Cells[0].Value));
+            modifiers.Show();
         }
-        public void remplirgrid1()
-        {
-            Deconnecter();
-            cnx.Open();
-            cmd = new SqlCommand("select * from bulletins where login = '" + textBox1 + "'", cnx);
-            Reader = cmd.ExecuteReader();
-            table1.Load(Reader);
-            dataGridView1.DataSource = table1;
-            cnx.Close();
-        }
+       
 
         private void button4_Click(object sender, EventArgs e)
         {
             Deconnecter();
             cnx.Open();
-            if (textBox1.Text == "")
+            if (dateTimePicker1.Value.ToString() == "")
             {
-                MessageBox.Show("Veuillez remplir le champ ID", "MERCI ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Veuillez remplir le champ date SVP", "MERCI ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                cmd = new SqlCommand("delete  from bulletins where NUMBULL ='" + textBox1.Text + "'", cnx);
+                cmd = new SqlCommand("delete  from bulletins where NUMBULL ='" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value) + "'", cnx);
 
                 int i = cmd.ExecuteNonQuery();
                 if (i != 0)
@@ -110,7 +95,7 @@ namespace projet
                 }
                 else
                 {
-                    MessageBox.Show("veuillez verifier le numero ", "numero n'est pas correcte ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("veuillez verifier  ", "numero n'est pas correcte ", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
                 cnx.Close();
@@ -121,6 +106,23 @@ namespace projet
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Remplirgrid1();
+        }
+        public void Remplirgrid1()
+        {
+
+            Deconnecter();
+            cnx.Open();
+            cmd = new SqlCommand("select * from  bulletins where datedepot ='" + dateTimePicker1.Value.ToString() + "'and login ='" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value)+"'", cnx);
+
+            Reader = cmd.ExecuteReader();
+            table1.Load(Reader);
+            dataGridView2.DataSource = table1;
+            cnx.Close();
         }
     }
 }

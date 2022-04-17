@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.nom = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.frais = new System.Windows.Forms.TextBox();
             this.frais2 = new System.Windows.Forms.TextBox();
             this.plafond = new System.Windows.Forms.TextBox();
@@ -49,16 +48,6 @@
             this.nom.Size = new System.Drawing.Size(100, 23);
             this.nom.TabIndex = 0;
             this.nom.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(582, 341);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "verifier";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frais
             // 
@@ -89,7 +78,7 @@
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "mr/ms";
             // 
@@ -99,7 +88,7 @@
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(248, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "frais";
             // 
@@ -109,7 +98,7 @@
             this.label3.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 126);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(248, 17);
+            this.label3.Size = new System.Drawing.Size(229, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "frais apres  remboursement";
             // 
@@ -119,7 +108,7 @@
             this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(21, 210);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(281, 17);
+            this.label4.Size = new System.Drawing.Size(259, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "plafond avant remboursement";
             // 
@@ -129,7 +118,7 @@
             this.label5.Font = new System.Drawing.Font("Perpetua Titling MT", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(21, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(273, 17);
+            this.label5.Size = new System.Drawing.Size(252, 16);
             this.label5.TabIndex = 11;
             this.label5.Text = "plafond apres remboursement";
             // 
@@ -156,7 +145,6 @@
             this.Controls.Add(this.plafond);
             this.Controls.Add(this.frais2);
             this.Controls.Add(this.frais);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.nom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "verification";
@@ -170,7 +158,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox nom;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox frais;
         private System.Windows.Forms.TextBox frais2;
         private System.Windows.Forms.TextBox plafond;

@@ -34,5 +34,12 @@ namespace projet
                 cnx.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            rapport r = new rapport(textBox1.Text,dateTimePicker1.Value.ToString());
+            r.Show();
+        }
     }
 }

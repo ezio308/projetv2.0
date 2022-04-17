@@ -35,24 +35,28 @@ namespace projet
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(245, 505);
+            this.button1.Location = new System.Drawing.Point(477, 403);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 84);
             this.button1.TabIndex = 0;
-            this.button1.Text = "ajouter emplyé";
+            this.button1.Text = "ajouter employé";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.SteelBlue;
+            this.button3.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button3.Location = new System.Drawing.Point(245, 403);
             this.button3.Name = "button3";
@@ -77,6 +81,7 @@ namespace projet
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.SteelBlue;
+            this.button4.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button4.Location = new System.Drawing.Point(23, 505);
             this.button4.Name = "button4";
@@ -89,6 +94,7 @@ namespace projet
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.SteelBlue;
+            this.button5.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button5.Location = new System.Drawing.Point(23, 403);
             this.button5.Name = "button5";
@@ -101,6 +107,7 @@ namespace projet
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.SteelBlue;
+            this.button6.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button6.Location = new System.Drawing.Point(546, 583);
             this.button6.Name = "button6";
@@ -110,12 +117,35 @@ namespace projet
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(260, 520);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Text = "write login here";
+            // 
+            // clear
+            // 
+            this.clear.BackColor = System.Drawing.Color.SteelBlue;
+            this.clear.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.clear.Location = new System.Drawing.Point(245, 548);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(191, 64);
+            this.clear.TabIndex = 18;
+            this.clear.Text = "clear";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1105, 658);
+            this.Controls.Add(this.clear);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -128,6 +158,7 @@ namespace projet
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -139,5 +170,7 @@ namespace projet
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button clear;
     }
 }

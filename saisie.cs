@@ -15,7 +15,7 @@ namespace projet
 {
     public partial class saisie : Form
     {
-        SqlConnection cnx = new SqlConnection(@"Data Source=LAPTOP-NJ81HHSQ\SQLSERVER;Initial Catalog=dbdd;Integrated Security=True");
+        SqlConnection cnx = new SqlConnection(@"Data Source=DESKTOP-N8SA1K2\SQLEXPRESS;Initial Catalog=dbp;Integrated Security=True");
       
         SqlCommand cmd = new SqlCommand();
 

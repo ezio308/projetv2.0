@@ -50,7 +50,7 @@ namespace projet
             prenomconjoint.Text = Convert.ToString(Reader["prenomconjoint"]);
             numtel.Text = Convert.ToString(Reader["tel"]);
             nbrenf.Text = Convert.ToString(Reader["nbrenfants"]);
-            Date.Text = Convert.ToString(Reader["datenaiss"]);
+            Date.Text = Convert.ToString(Reader["daten"]);
 
 
             cnx.Close();
@@ -89,12 +89,12 @@ namespace projet
 
 
 
-                    cmd = new SqlCommand("update  users set login='" + login.Text + "',password='" + password.Text + "',ID='" + id.Text + "',adresse='" + adresse.Text + "',name='" + nom.Text + "',lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',role='" + z + "',grade='" + x + "',datenaiss='" + Date.Value.ToString() + "' where ID='" + id.Text + "'", cnx);
+                    cmd = new SqlCommand("update  users set login='" + login.Text + "',password='" + password.Text + "',ID='" + id.Text + "',adresse='" + adresse.Text + "',name='" + nom.Text + "',lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',role='" + z + "',grade='" + x + "',daten='" + Date.Value.ToString() + "' where ID='" + id.Text + "'", cnx);
                 }
                 else
                 {
                     y = int.Parse(nbrenf.Text);
-                    cmd = new SqlCommand("update  users set login='" + login.Text + "',password='" + password.Text + "',ID='" + id.Text + "',adresse='" + adresse.Text + "',name='" + nom.Text + "',lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',role='" + z + "',grade='" + x + "',datenaiss='" + Date.Value.ToString() + "',nombreenfants='" + y + "',nomconjoint='" + nomconjoint.Text + "',prenomconjoint='" + prenomconjoint.Text + "' where ID='" + id.Text + "'", cnx);
+                    cmd = new SqlCommand("update  users set login='" + login.Text + "',password='" + password.Text + "',ID='" + id.Text + "',adresse='" + adresse.Text + "',name='" + nom.Text + "',lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',role='" + z + "',grade='" + x + "',daten='" + Date.Value.ToString() + "',nombreenfants='" + y + "',nomconjoint='" + nomconjoint.Text + "',prenomconjoint='" + prenomconjoint.Text + "' where ID='" + id.Text + "'", cnx);
 
                 }
             

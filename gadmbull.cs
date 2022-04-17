@@ -12,23 +12,18 @@ using System.Configuration;
 
 namespace projet
 {
-    public partial class rechercher : Form
+    public partial class gadmbull : Form
     {
         SqlConnection cnx = new SqlConnection(@"Data Source=LAPTOP-NJ81HHSQ\SQLSERVER;Initial Catalog=dbdd;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         DataTable table = new DataTable();
-        public rechercher()
+        public gadmbull()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void valider_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Remplirgrid();
         }
@@ -37,7 +32,7 @@ namespace projet
 
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from users where id='" + ID.Text + "'", cnx);
+            cmd = new SqlCommand("select * from bulletins  ", cnx);
 
             Reader = cmd.ExecuteReader();
             table.Load(Reader);
@@ -52,11 +47,9 @@ namespace projet
             }
         }
 
-        private void clear_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            ID.Clear();
-            int index = this.dataGridView1.CurrentRow.Index;
-            this.dataGridView1.Rows.RemoveAt(index);
+            this.Hide();
         }
     }
 }
