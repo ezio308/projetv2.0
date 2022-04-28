@@ -18,9 +18,10 @@ namespace projet
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         DataTable table = new DataTable();
-        public employe()
+        public employe(string nom)
         {
             InitializeComponent();
+            label2.Text = nom;
         }
 
         private void employe_Load(object sender, EventArgs e)
@@ -38,8 +39,20 @@ namespace projet
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            rapport r = new rapport(textBox1.Text,dateTimePicker1.Value.ToString());
+            rapport r = new rapport(label2.Text,dateTimePicker1.Value.ToString());
             r.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
         }
     }
 }

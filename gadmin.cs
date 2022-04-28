@@ -19,6 +19,7 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             admin admin = new admin();
             admin.Show();
             admin.Remplirgrid();
@@ -36,7 +37,7 @@ namespace projet
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string s = "mohsen";
+            this.Hide();
             pdfbulle bpdf = new pdfbulle();
             bpdf.Show();
            
@@ -51,8 +52,34 @@ namespace projet
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Hide();
             gadmbull ga = new gadmbull();
             ga.Show();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 ag = new Form1();
+            ag.Show();
+            
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void pagePrecToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fdsfToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
 
         }
     }

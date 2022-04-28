@@ -46,7 +46,7 @@ namespace projet
         {
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from users ", cnx);
+            cmd = new SqlCommand("select login,name,lastname,adresse,grade from users ", cnx);
             Reader = cmd.ExecuteReader();
             table.Load(Reader);
             dataGridView1.DataSource = table;
@@ -123,6 +123,13 @@ namespace projet
             table1.Load(Reader);
             dataGridView2.DataSource = table1;
             cnx.Close();
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
         }
     }
 }

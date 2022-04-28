@@ -51,5 +51,17 @@ namespace projet
         {
             this.Hide();
         }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void gadmbull_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

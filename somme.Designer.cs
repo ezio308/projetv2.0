@@ -28,53 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.date = new System.Windows.Forms.ComboBox();
             this.s = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.annee = new System.Windows.Forms.ComboBox();
-            this.mois = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.hOMEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // date
-            // 
-            this.date.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.FormattingEnabled = true;
-            this.date.Items.AddRange(new object[] {
-            "un mois",
-            "une année"});
-            this.date.Location = new System.Drawing.Point(135, 110);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(169, 26);
-            this.date.TabIndex = 0;
-            this.date.SelectedIndexChanged += new System.EventHandler(this.date_SelectedIndexChanged);
             // 
             // s
             // 
             this.s.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.s.Location = new System.Drawing.Point(228, 347);
+            this.s.Location = new System.Drawing.Point(236, 321);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(129, 26);
             this.s.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "pendant";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 350);
+            this.label2.Location = new System.Drawing.Point(42, 324);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 18);
             this.label2.TabIndex = 3;
@@ -84,7 +61,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(336, 113);
+            this.label3.Location = new System.Drawing.Point(51, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 4;
@@ -93,12 +70,12 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
             this.button1.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(81, 241);
+            this.button1.Location = new System.Drawing.Point(236, 195);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 50);
+            this.button1.Size = new System.Drawing.Size(129, 42);
             this.button1.TabIndex = 6;
             this.button1.Text = "calculer";
             this.button1.UseVisualStyleBackColor = false;
@@ -108,77 +85,77 @@
             // 
             this.annee.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.annee.FormattingEnabled = true;
-            this.annee.Location = new System.Drawing.Point(444, 110);
+            this.annee.Location = new System.Drawing.Point(244, 96);
             this.annee.Name = "annee";
             this.annee.Size = new System.Drawing.Size(121, 26);
             this.annee.TabIndex = 7;
+            this.annee.SelectedIndexChanged += new System.EventHandler(this.annee_SelectedIndexChanged);
             // 
-            // mois
+            // menuStrip1
             // 
-            this.mois.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mois.FormattingEnabled = true;
-            this.mois.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.mois.Location = new System.Drawing.Point(657, 110);
-            this.mois.Name = "mois";
-            this.mois.Size = new System.Drawing.Size(121, 26);
-            this.mois.TabIndex = 8;
+            this.menuStrip1.BackColor = System.Drawing.Color.SkyBlue;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hOMEToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(943, 25);
+            this.menuStrip1.TabIndex = 109;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // label4
+            // hOMEToolStripMenuItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Perpetua Titling MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(583, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 18);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "mois";
+            this.hOMEToolStripMenuItem.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hOMEToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.hOMEToolStripMenuItem.Text = "HOME PAGE";
+            this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button4.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button4.Location = new System.Drawing.Point(745, 484);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 42);
+            this.button4.TabIndex = 110;
+            this.button4.Text = "close";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // somme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.mois);
+            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.ClientSize = new System.Drawing.Size(943, 729);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.annee);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.s);
-            this.Controls.Add(this.date);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "somme";
-            this.Text = "somme";
-            this.Load += new System.EventHandler(this.somme_Load);
+            this.Text = "Ciments de Bizerte";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox date;
         private System.Windows.Forms.TextBox s;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox annee;
-        private System.Windows.Forms.ComboBox mois;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem hOMEToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
     }
 }
