@@ -19,6 +19,9 @@ namespace projet
         SqlCommand cmd = new SqlCommand();
         int r;
         string s;
+        SqlCommand cmd2 = new SqlCommand();
+        SqlDataReader Reader;
+        SqlDataReader Reader1;
         public ajouter()
         {
             InitializeComponent();
@@ -41,101 +44,121 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (grade.Text == "")
-            {
-                MessageBox.Show("selectionnez votre grade", "grade manquant", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            int v = 1;
+            if (login.Text==""|| password.Text == "" || email.Text == "" || prenom.Text == "" || nom.Text == "" || adresse.Text == "" || numtel.Text == "" || codecn.Text == "" )
+            {
+                v = 0;
             }
-            int x = int.Parse(grade.Text);
-
-            
-            if (radioButton1.Checked)
+            else if (radioButton1.Checked && (nomconjoint.Text == "" || prenomconjoint.Text == "" || nbrenf.Text == "" ))
             {
-                s = "marié";
-            }
-            else if (radioButton2.Checked)
-            {
-                s = "célibataire";
-            }
-            else if (!radioButton2.Checked && !radioButton1.Checked)
-
-            {
-                MessageBox.Show("selectionnez votre etatcivil", "etat civil manquant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                v = 0;
             }
 
+             else if (!radioButton2.Checked && !radioButton1.Checked)
+            {
+                v = 0;
+            }
 
-            
-             if(listBox2.SelectedIndex == 0)
+            else if (listBox1.SelectedIndex == -1)
+
             {
-                r = 3;
-            }
-             else if(listBox2.SelectedIndex == 1)
-            {
-                r=1;
-            }
-            else if (listBox2.SelectedIndex == 2)
-            {
-                r = 2;
+                v = 0;
             }
             else if (listBox2.SelectedIndex == -1)
 
             {
-                MessageBox.Show("selectionnez votre role", "role manquant", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                v = 0;
             }
-            
-            if (nbrenf.Text=="")
+            else {
+                cnx.Open();
+                cmd2 = new SqlCommand("select * from users where login='" + login.Text + "'", cnx);
+                Reader1 = cmd2.ExecuteReader();
+                if (Reader1.HasRows)
+                {
+                    MessageBox.Show("employe deja existe", "attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    v = 0;
+                    cnx.Close();
+                }
+                
+            }
+            if (v == 0)
             {
-                nbrenf.Text = "0";
+                MessageBox.Show("veuillez remplir tous les champs", "attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            
-            int y = int.Parse(nbrenf.Text);
-            Deconnecter();
-            cnx.Open();
-            //  cmd = new SqlCommand("INSERT INTO users   VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "'," + grade.Text + ",'" + numtel.Text + "','" + codecn.Text + "','" + etatcivil.Text + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "'," + nbrenf.Text + "," + role.Text + ")", cnx);
-            if (x == 1)
+            else 
             {
-                cmd = new SqlCommand("INSERT INTO users (login,password,ID,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1800)", cnx);
-            }
-            else if (x == 2)
-            {
-                cmd = new SqlCommand("INSERT INTO users (login,password,ID,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1400)", cnx);
+                if (nbrenf.Text == "")
+                {
+                    nbrenf.Text = "0";
+                }
+                if (listBox2.SelectedIndex == 0)
+                {
+                    r = 3;
+                }
+                else if (listBox2.SelectedIndex == 1)
+                {
+                    r = 1;
+                }
+                else if (listBox2.SelectedIndex == 2)
+                {
+                    r = 2;
+                }
+                if (radioButton1.Checked)
+                {
+                    s = "marié";
+                }
+                else if (radioButton2.Checked)
+                {
+                    s = "célibataire";
+                }
+                int x = int.Parse(this.listBox1.GetItemText(this.listBox1.SelectedItem));
+                int y = int.Parse(nbrenf.Text);
+                Deconnecter();
+                cnx.Open();
+                //  cmd = new SqlCommand("INSERT INTO users   VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "'," + grade.Text + ",'" + numtel.Text + "','" + codecn.Text + "','" + etatcivil.Text + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "'," + nbrenf.Text + "," + role.Text + ")", cnx);
+                if (x == 1)
+                {
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nombreenfants,role,daten,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1800)", cnx);
+                }
+                else if (x == 2)
+                {
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nombreenfants,role,daten,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1400)", cnx);
+
+                }
+                else if (x == 3)
+                {
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nombreenfants,role,daten,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1000)", cnx);
+                }
+                else if (x == 4)
+                {
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nombreenfants,role,daten,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','"+ dateTimePicker1.Value.ToString() + "',600)", cnx);
+
+                }
+                int i = cmd.ExecuteNonQuery();
+
+
+
+
+
+                if (i != 0)
+                {
+                    MessageBox.Show("Ajout effectué avec succes", "cbon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cnx.Close();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("verfiez les données", "resseyez", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+
+
 
             }
-            else if (x == 3)
-            {
-                cmd = new SqlCommand("INSERT INTO users (login,password,ID,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1000)", cnx);
-
-            }
-            else if (x == 4)
-            {
-                cmd = new SqlCommand("INSERT INTO users (login,password,ID,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" +  "',600)", cnx);
-
-            }
-            int i = cmd.ExecuteNonQuery();
-
-
-
-
-
-            if (i != 0)
-            {
-                MessageBox.Show("Ajout effectué avec succes", "cbon", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                cnx.Close();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("verfiez les données", "resseyez", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-
-
-
-
         }
 
         private void Ajouter_Load(object sender, EventArgs e)
@@ -165,6 +188,23 @@ namespace projet
             nomconjoint.Enabled = false;
             prenomconjoint.Enabled = false;
             nbrenf.Enabled = false;
+        }
+
+        private void nbrenf_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

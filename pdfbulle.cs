@@ -24,6 +24,9 @@ namespace projet
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         DataTable Table = new DataTable();
+        SqlCommand cmd2 = new SqlCommand();
+        
+        SqlDataReader Reader1;
         public void deconnecter()
         {
             if (cnx.State == ConnectionState.Open)
@@ -89,7 +92,7 @@ namespace projet
 
         }
 
-        string s = "mohsen";
+       
         public pdfbulle()
         {
             InitializeComponent();
@@ -113,9 +116,39 @@ namespace projet
        
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            remplirGrid(textBox1.Text);
+        {  
+            
+            cnx.Open();
+            cmd2 = new SqlCommand("select * from users where login='" + textBox1.Text + "'", cnx);
+            Reader1 = cmd2.ExecuteReader();
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("entrez une matricule d'un employé", "SVP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!Reader1.HasRows)
+                {
+                    MessageBox.Show("employe n'existe pas", "attention", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                    cnx.Close();
+                }
+            else
+            {
 
+                remplirGrid(textBox1.Text);
+
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
         }
     }
 }

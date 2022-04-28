@@ -44,66 +44,24 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Deconnecter();
+            cnx.Open();
             int veriff = 1;
-
-            MessageBox.Show(date.SelectedIndex.ToString(), "resseyez", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            if (date.SelectedIndex == -1)
-            {
-                veriff = 0;
-                MessageBox.Show("loula", "resseyez", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if ((date.SelectedIndex == 1) && (annee.SelectedIndex == -1))
+            if (annee.SelectedIndex == -1)
             {
                 veriff = 0;
             }
-            else if ((date.SelectedIndex == 0) && (mois.SelectedIndex == -1))
-            {
-                veriff = 0;
-            }
+          
             else    
-            {
-                if (annee.SelectedIndex != -1)
-                {
-                    string selected = this.annee.GetItemText(this.annee.SelectedItem);
-                    MessageBox.Show(selected);
-                }
-                else {
-                    string selected = this.mois.GetItemText(this.mois.SelectedItem);
-                }
-
-
-                int somme = 0;
-                Deconnecter();
-                cnx.Open();
-                cmd = new SqlCommand("select * from users ", cnx);
+            {            
+                           
+                cmd = new SqlCommand("select SUM(rembou) from bulletins where datedepot LIKE'"+ this.annee.GetItemText(this.annee.SelectedItem) + "%'and reponse='accepter'", cnx);
                 Reader = cmd.ExecuteReader();
-                if (Reader.HasRows)
-                {
+                Reader.Read();
+                double somme = Convert.ToDouble(Reader[0]);
+                s.Text = Convert.ToString(somme);
 
-                    while (Reader.Read())
-                    {
-                        int plafond = Convert.ToInt32(Reader["plafond"]);
-                        int grade = Convert.ToInt32(Reader["grade"]);
-                        if (grade==1)
-                         {
-                            somme = somme + (1800 - plafond);
-                         }
-                        else if (grade == 2)
-                        {
-                            somme = somme + (1400 - plafond);
-                        }
-                        else if (grade == 3)
-                        { 
-                            somme = somme + (1000 - plafond);
-                        }
-                       else
-                        {
-                            somme = somme + (600 - plafond);
-                        }
-                    }
-                }
-                
+
                 s.Text= Convert.ToString(somme);
             }
 
@@ -122,29 +80,30 @@ namespace projet
             }
         }
 
-        private void somme_Load(object sender, EventArgs e)
-        {
-            annee.Enabled = false;
-            mois.Enabled = false;
-        }
+       
 
-        private void date_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (date.SelectedIndex == 1)
-            {
-                annee.Enabled = true;
-                mois.Enabled = false;
-            }
-            if (date.SelectedIndex == 0)
-            {
-                mois.Enabled = true;
-                annee.Enabled = false;
-            }
-        }
+        
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void annee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

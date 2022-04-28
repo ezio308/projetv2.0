@@ -37,6 +37,7 @@ namespace projet
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             ajouter ajputer = new ajouter();
 
             ajputer.Show();
@@ -65,9 +66,14 @@ namespace projet
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            /*this.Hide();
-            rechercher rechercher = new rechercher();
-            rechercher.Show();*/
+            int i;
+            
+            int index = this.dataGridView1.CurrentRow.Index;
+            for (i = 0; i <= (dataGridView1.Rows.Count); i++)
+
+            {
+                this.dataGridView1.Rows.RemoveAt(index);
+            }
             Remplirgrid1();
         }
         public void Deconnecter()//ay bd ma7loula tssakerha//
@@ -93,9 +99,16 @@ namespace projet
         {
             Deconnecter();
             cnx.Open();
-            
-            
-            
+
+            if (Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value) == null)
+            {
+                MessageBox.Show("selectionnez un employe ", "vous n'avez pas selectionner un employé", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+
+
                 cmd = new SqlCommand("delete from users where login =  '" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value) + "'", cnx);
 
 
@@ -111,7 +124,8 @@ namespace projet
 
                 }
                 cnx.Close();
-            
+
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -137,16 +151,34 @@ namespace projet
         private void button7_Click(object sender, EventArgs e)
         {
             this.Hide();  
-            string s = "sami";
+            
             pdfbulle bull = new pdfbulle();
             bull.Show();
         }
 
         private void clear_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            int index = this.dataGridView1.CurrentRow.Index;
-            this.dataGridView1.Rows.RemoveAt(index);
+            
+            
+                int i;
+                textBox1.Clear();
+                int index = this.dataGridView1.CurrentRow.Index;
+                for (i = 0; i <= (dataGridView1.Rows.Count); i++)
+
+                {
+                    this.dataGridView1.Rows.RemoveAt(index);
+                }
+            
+        }
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
 
         }
     }

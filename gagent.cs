@@ -12,9 +12,10 @@ namespace projet
 {
     public partial class gagent : Form
     {
-        public gagent()
+        public gagent(string nom)
         {
             InitializeComponent();
+            label2.Text = nom;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -25,12 +26,13 @@ namespace projet
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            saisie saisie = new saisie();
+            saisie saisie = new saisie(label2.Text);
             saisie.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             agent agent = new agent();
             agent.Show();
             agent.remplirgrid();
@@ -41,5 +43,21 @@ namespace projet
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

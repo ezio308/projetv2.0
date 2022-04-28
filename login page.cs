@@ -37,12 +37,12 @@ namespace projet
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
             gadmin gadmin = new gadmin();
-            gagent agent = new gagent();
-            employe employe = new employe();
+            gagent agent = new gagent(textBox2.Text);
+            employe employe = new employe(textBox2.Text);
 
-
+            
             if (textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Veuillez remplir les 2 champs");

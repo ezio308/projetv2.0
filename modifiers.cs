@@ -35,6 +35,7 @@ namespace projet
             Reader = cmd.ExecuteReader();
             Reader.Read();
             textBox1.Text = Convert.ToString(Reader["NUMBULL"]);
+            textBox1.Enabled = false;
             dateTimePicker1.Text = Convert.ToString(Reader["datedepot"]);
             textBox3.Text = Convert.ToString(Reader["actedesc"]);
             textBox4.Text = Convert.ToString(Reader["actefrais"]);
@@ -62,7 +63,7 @@ namespace projet
             Deconnecter();
             cnx.Open();
 
-            cmd = new SqlCommand("update  bulletins set datedepot='" + dateTimePicker1.Value.ToString() + "',actedesc ='" + textBox3.Text + "',actefrais='" + x + "',login ='" + textBox5.Text +  "'", cnx);
+            cmd = new SqlCommand("update  bulletins set datedepot='" + dateTimePicker1.Value.ToString() + "',actedesc ='" + textBox3.Text + "',login ='" + textBox5.Text + "' actefrais='" + x + "'where NUMBULL='" + textBox1.Text+"' ", cnx);
 
             int i = cmd.ExecuteNonQuery();
             if (i != 0)
@@ -71,6 +72,13 @@ namespace projet
             }
 
             this.Hide();
+        }
+
+        private void hOMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginpage log = new loginpage();
+            log.Show();
         }
     }
 }
