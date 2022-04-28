@@ -39,7 +39,7 @@ namespace projet
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            rapport r = new rapport(label2.Text,dateTimePicker1.Value.ToString());
+            rapport r = new rapport(label2.Text,dateTimePicker1.ToString());
             r.Show();
         }
 

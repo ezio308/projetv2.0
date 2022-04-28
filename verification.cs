@@ -23,16 +23,16 @@ namespace projet
         SqlDataReader Reader;
         DataTable table = new DataTable();
 
-        public verification(string frais, string id,string bull, string date,string nom)
+        public verification(float frais, string id,string bull, string date,string nom)
         {
             InitializeComponent();
             remplissage(id,frais,bull,date);
             textBox2.Text = nom;
             textBox1.Text = date;
         }
-        public void remplissage(string id , string f,string bull,string date)
+        public void remplissage(string id , float f,string bull,string date)
         {
-            
+
             Deconnecter();
             cnx.Open();
 
@@ -42,34 +42,35 @@ namespace projet
             Reader.Read();
             nom.Text = Convert.ToString(Reader["name"]);
             plafond.Text = Convert.ToString(Reader["plafond"]);
-            frais.Text = f;
-            double remb =   double.Parse(f);//
-            double rembb = (remb * 30)/100;// 30%
-            double pp = double.Parse(plafond.Text);
+            frais.Text = f.ToString();
+            double remb = (float)(float.Parse(f.ToString()));//
+            double rembb = (remb * 0.3);// 30%
+            double pp = float.Parse(plafond.Text);
             frais2.Text = Convert.ToString(rembb);
-            double p2 = pp-rembb;//plafond- 30%
-            double pl = double.Parse(plafond.Text);//plafond
-            plafond2.Text = Convert.ToString(p2);
+            double p2 = pp - rembb;//plafond- 30%
+            double pl = float.Parse(plafond.Text);//plafond
+
+            plafond2.Text = p2.ToString();
             cnx.Close();
             Deconnecter();
             cnx.Open();
-        
+
             if (pl == 0)
             {
                 cmd = new SqlCommand("update bulletins set reponse= 'refuser'  where  NUMBULL='" + bull + "'", cnx);
-                cmd2 = new SqlCommand("update bulletins set rembou='"+0+"'  where  NUMBULL='" + bull + "'", cnx);
+                cmd2 = new SqlCommand("update bulletins set rembou='" + 0 + "'  where  NUMBULL='" + bull + "'", cnx);
                 cmd2.ExecuteNonQuery();
             }
             else if (p2 >= 0)
             {
-                cmd = new SqlCommand("update bulletins set reponse='accepter'  where  NUMBULL='"+bull+"'", cnx);
+                cmd = new SqlCommand("update bulletins set reponse='accepter'  where  NUMBULL='" + bull + "'", cnx);
                 cmd1 = new SqlCommand("update users set plafond='" + p2 + "'  where login='" + id + "'", cnx);
-                cmd2 = new SqlCommand("update bulletins set rembou='"+rembb+"'  where  NUMBULL='" + bull + "'", cnx);
+                cmd2 = new SqlCommand("update bulletins set rembou='" + rembb + "'  where  NUMBULL='" + bull + "'", cnx);
                 cmd2.ExecuteNonQuery();
-                cmd1.ExecuteNonQuery();  
+                cmd1.ExecuteNonQuery();
             }
-            else if (p2<0)
-            { 
+            else if (p2 < 0)
+            {
                 cmd = new SqlCommand("update bulletins set reponse='accepter'  where  NUMBULL='" + bull + "'", cnx);
                 cmd1 = new SqlCommand("update users set plafond='" + 0 + "'  where login='" + id + "'", cnx);
                 cmd2 = new SqlCommand("update bulletins set rembou='" + rembb + "'  where  NUMBULL='" + bull + "'", cnx);
@@ -79,7 +80,7 @@ namespace projet
             }
             cmd.ExecuteNonQuery();
             cnx.Close();
-            
+
 
         }
         public void Deconnecter()//ay bd ma7loula tssakerha//
