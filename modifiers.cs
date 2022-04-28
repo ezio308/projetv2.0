@@ -36,6 +36,7 @@ namespace projet
             Reader.Read();
             textBox1.Text = Convert.ToString(Reader["NUMBULL"]);
             textBox1.Enabled = false;
+            textBox4.Enabled = false;
             dateTimePicker1.Text = Convert.ToString(Reader["datedepot"]);
             textBox3.Text = Convert.ToString(Reader["actedesc"]);
             textBox4.Text = Convert.ToString(Reader["actefrais"]);
@@ -63,7 +64,7 @@ namespace projet
             Deconnecter();
             cnx.Open();
 
-            cmd = new SqlCommand("update  bulletins set datedepot='" + dateTimePicker1.Value.ToString() + "',actedesc ='" + textBox3.Text + "',login ='" + textBox5.Text + "' actefrais='" + x + "'where NUMBULL='" + textBox1.Text+"' ", cnx);
+            cmd = new SqlCommand("update  bulletins set datedepot='" + dateTimePicker1.Value.ToString() + "',actedesc ='" + textBox3.Text + "',login ='" + textBox5.Text + "'where NUMBULL='" + textBox1.Text+"' ", cnx);
 
             int i = cmd.ExecuteNonQuery();
             if (i != 0)
