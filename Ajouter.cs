@@ -46,12 +46,29 @@ namespace projet
         {
             return Regex.IsMatch(ch, @"^[0-9]+$") && ch.Length != 0;
         }
+       
+        Boolean mat(string ch)
+        {
+            return Regex.IsMatch(ch, @"^[a-zA-Z0-9]+$") && ch.Length != 0;
+        }
+
+        Boolean alphab(string ch)
+        {
+            return Regex.IsMatch(ch, @"^[a-zA-Z]+$") && ch.Length != 0;
+        }
+
+        Boolean alphanum(string ch)
+        {
+            return Regex.IsMatch(ch, @"^[a-zA-Z0-9]+$") && ch.Length != 0;
+        }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
 
             int v = 1;
-            if (login.Text==""|| password.Text == "" || email.Text == "" || prenom.Text == "" || nom.Text == "" || adresse.Text == "" || numtel.Text == "" || codecn.Text == "" ||!num(numtel.Text))
+            if (login.Text==""|| password.Text == "" || email.Text == "" || prenom.Text == "" || nom.Text == "" || adresse.Text == "" || numtel.Text == "" || codecn.Text == "" ||!num(numtel.Text) ||!mat(login.Text) ||!alphab(nom.Text) || !alphab(nom.Text)||numtel.TextLength != 8 || password.TextLength != 8 || !num(password.Text))
             {
                 v = 0;
             }
@@ -129,20 +146,28 @@ namespace projet
                 //  cmd = new SqlCommand("INSERT INTO users   VALUES ('" + login.Text + "','" + password.Text + "','" + id.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "'," + grade.Text + ",'" + numtel.Text + "','" + codecn.Text + "','" + etatcivil.Text + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "'," + nbrenf.Text + "," + role.Text + ")", cnx);
                 if (x == 1)
                 {
-                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbreenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1800)", cnx);
+                    string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + selectDateAsString + "',1800)", cnx);
                 }
                 else if (x == 2)
                 {
-                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbreenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1400)", cnx);
+                    string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + selectDateAsString + "',1400)", cnx);
 
                 }
                 else if (x == 3)
                 {
-                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbreenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + dateTimePicker1.Value.ToString() + "',1000)", cnx);
+                    string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + selectDateAsString + "',1000)", cnx);
                 }
                 else if (x == 4)
                 {
-                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbreenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','"+ dateTimePicker1.Value.ToString() + "',600)", cnx);
+                    string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+
+                    cmd = new SqlCommand("INSERT INTO users (login,password,email,name,lastname,adresse,grade,tel,codecn,etatcivil,nomconjoint,prenomconjoint,nbrenfants,role,datenaiss,plafond) VALUES ('" + login.Text + "','" + password.Text + "','" + email.Text + "','" + prenom.Text + "','" + nom.Text + "','" + adresse.Text + "','" + x + "','" + numtel.Text + "','" + codecn.Text + "','" + s + "','" + nomconjoint.Text + "','" + prenomconjoint.Text + "','" + y + "','" + r + "','" + selectDateAsString + "',600)", cnx);
 
                 }
                 int i = cmd.ExecuteNonQuery();
@@ -156,7 +181,7 @@ namespace projet
                     MessageBox.Show("Ajout effectué avec succes", "cbon", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     cnx.Close();
-                    this.Hide();
+                    
                 }
                 else
                 {
@@ -214,6 +239,13 @@ namespace projet
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            admin ad = new admin();
+                ad.Show();
         }
     }
 }

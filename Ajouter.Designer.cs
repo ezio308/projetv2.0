@@ -411,12 +411,15 @@ namespace projet
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button2.Location = new System.Drawing.Point(475, 500);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 45);
             this.button2.TabIndex = 76;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Text = "retour ";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ajouter
             // 

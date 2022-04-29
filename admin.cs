@@ -57,7 +57,7 @@ namespace projet
 
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from users where login='" + textBox1.Text + "'", cnx);
+            cmd = new SqlCommand("select * from users where login='" + textBox1.Text + "' and role='"+1+"'", cnx);
 
             Reader = cmd.ExecuteReader();
             table.Load(Reader);
