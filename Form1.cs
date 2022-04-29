@@ -14,7 +14,7 @@ namespace projet
 {
     public partial class Form1 : Form
     {
-        SqlConnection cnx = new SqlConnection(@"Data Source=DESKTOP-N8SA1K2\SQLEXPRESS;Initial Catalog=dbp;Integrated Security=True");
+        SqlConnection cnx = new SqlConnection(@"Data Source=LAPTOP-NJ81HHSQ\SQLSERVER;Initial Catalog=dbdd;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         DataTable table = new DataTable();
@@ -40,7 +40,7 @@ namespace projet
         {
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from users where role = 2 ", cnx);
+            cmd = new SqlCommand("select login,name,lastname from users where role = 2 ", cnx);
             Reader = cmd.ExecuteReader();
             table.Load(Reader);
             dataGridView1.DataSource = table;

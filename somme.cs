@@ -18,6 +18,7 @@ namespace projet
     {
 
         SqlConnection cnx = new SqlConnection(@"Data Source=LAPTOP-NJ81HHSQ\SQLSERVER;Initial Catalog=dbdd;Integrated Security=True");
+   
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         public somme()
@@ -60,9 +61,6 @@ namespace projet
                 Reader.Read();
                 double somme = Convert.ToDouble(Reader[0]);
                 s.Text = Convert.ToString(somme);
-
-
-                s.Text= Convert.ToString(somme);
             }
 
             if (veriff == 0)
@@ -72,7 +70,7 @@ namespace projet
             }
 
         }
-        public void Deconnecter()//ay bd ma7loula tssakerha//
+        public void Deconnecter()
         {
             if (cnx.State == ConnectionState.Open)
             {
@@ -104,6 +102,11 @@ namespace projet
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void somme_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

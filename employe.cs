@@ -39,7 +39,8 @@ namespace projet
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            rapport r = new rapport(label2.Text,dateTimePicker1.Value.ToString());
+            string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+            rapport r = new rapport(label2.Text, selectDateAsString);
             r.Show();
         }
 

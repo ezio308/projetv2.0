@@ -64,7 +64,7 @@ namespace projet
             nomconjoint.Text = Convert.ToString(Reader["nomconjoint"]);
             prenomconjoint.Text = Convert.ToString(Reader["prenomconjoint"]);
             numtel.Text = Convert.ToString(Reader["tel"]);
-            nbrenf.Text = Convert.ToString(Reader["nombreenfants"]);
+            nbrenf.Text = Convert.ToString(Reader["nbrenfants"]);
            
 
 
@@ -87,13 +87,14 @@ namespace projet
         private void button1_Click(object sender, EventArgs e)
         {
 
+
             int x, y;
-            
+
             int r;
             Deconnecter();
             cnx.Open();
             int v = 1;
-            if (login.Text == "" ||  email.Text == "" || prenom.Text == "" || nom.Text == "" || adresse.Text == "" || numtel.Text == "" || codecn.Text == "")
+            if (login.Text == "" || email.Text == "" || prenom.Text == "" || nom.Text == "" || adresse.Text == "" || numtel.Text == "" || codecn.Text == "")
             {
                 v = 0;
             }
@@ -125,16 +126,15 @@ namespace projet
                     nbrenf.Text = "0";
                 }
                 y = int.Parse(nbrenf.Text);
-                   cmd = new SqlCommand("update  users set adresse='" + adresse.Text + "',name='"+nom.Text+ "', lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',grade='" + x + "',nombreenfants='" + y + "',nomconjoint='" + nomconjoint.Text + "',prenomconjoint='" + prenomconjoint.Text + "' where login='" + login.Text + "'", cnx);
+                cmd = new SqlCommand("update  users set adresse='" + adresse.Text + "',name='" + nom.Text + "', lastname='" + prenom.Text + "',email='" + email.Text + "',etatcivil='" + etatcivil.Text + "',codecn='" + codecn.Text + "',tel='" + numtel.Text + "',grade='" + x + "',nbrenfants='" + y + "',nomconjoint='" + nomconjoint.Text + "',prenomconjoint='" + prenomconjoint.Text + "' where login='" + login.Text + "'", cnx);
 
-                 int i = cmd.ExecuteNonQuery();
-                 if (i != 0)
-                  {
-                   MessageBox.Show("modifier effectuée avec succes", "cbon", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   }
-             }
+                int i = cmd.ExecuteNonQuery();
+                if (i != 0)
+                {
+                    MessageBox.Show("modifier effectuée avec succes", "cbon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
 
-          
         }
 
         private void Date_ValueChanged(object sender, EventArgs e)

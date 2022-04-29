@@ -108,7 +108,7 @@
             this.hOMEToolStripMenuItem.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hOMEToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
             this.hOMEToolStripMenuItem.Text = "HOME PAGE";
             this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
@@ -141,6 +141,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "somme";
             this.Text = "Ciments de Bizerte";
+            this.Load += new System.EventHandler(this.somme_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

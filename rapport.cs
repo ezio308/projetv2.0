@@ -43,37 +43,39 @@ namespace projet
            
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from bulletins where login='" + login + "'and datedepot='"+f+"'", cnx);
+            cmd = new SqlCommand("select * from bulletins where login='" + login + "'and datedepot = '"+f+"'", cnx);
             Reader = cmd.ExecuteReader();
-            Reader.Read();
-            frais.Text = Convert.ToString(Reader["actefrais"]);
-            double remb = double.Parse(frais.Text);// frais
-            double rembb = (double)(remb * 0.3);// 30%
-            frais2.Text = Convert.ToString(rembb);
-            double p2 = double.Parse(plafond.Text) - rembb;
-            double pl = double.Parse(plafond.Text);//plafond
-            plafond2.Text = Convert.ToString(p2);
-            string reponse= Convert.ToString(Reader["reponse"]);
-            double d = Convert.ToDouble(Reader["rembou"]);
-
-            if (reponse.Equals("refuser"))
+            if (Reader.HasRows)
             {
-                accept.Text = "Monsieur vous avez depassé votre plafonfVotre demande de remeboursement a éte refusé";
+                Reader.Read();
+                frais.Text = Convert.ToString(Reader["actefrais"]);
+                double remb = double.Parse(frais.Text);// frais
+                double rembb = (double)(remb * 0.3);// 30%
+                frais2.Text = Convert.ToString(rembb);
+                double p2 = double.Parse(plafond.Text) - rembb;
+                double pl = double.Parse(plafond.Text);//plafond
+                plafond2.Text = Convert.ToString(p2);
+                string reponse = Convert.ToString(Reader["reponse"]);
+                double d = Convert.ToDouble(Reader["rembou"]);
+
+                if (reponse.Equals("refuser"))
+                {
+                    accept.Text = "Monsieur vous avez depassé votre plafonfVotre demande de remeboursement a éte refusé";
+                }
+                else if (reponse.Equals("accepter"))
+                {
+
+                    accept.Text = "Votre demande de remeboursement a éte accepté ";
+                }
+                if (reponse.Equals("accepter") && (d < rembb))
+                {
+                    accept.Text = "Monsieur vous avez depassé votre plafonf on a accepté juste ce montant  " + d.ToString();
+
+                }
+                cnx.Close();
+
+
             }
-            else if (reponse.Equals("accepter"))
-            {
-
-                accept.Text = "Votre demande de remeboursement a éte accepté ";
-            }
-            if(reponse.Equals("accepter")&&(d<rembb))
-            {
-                accept.Text = "Monsieur vous avez depassé votre plafonf on a accepté juste ce montant  " + d.ToString();
-
-            }
-            cnx.Close();
-          
-
-
         }
         private void rapport_Load(object sender, EventArgs e)
         {

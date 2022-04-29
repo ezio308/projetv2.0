@@ -117,7 +117,8 @@ namespace projet
 
             Deconnecter();
             cnx.Open();
-            cmd = new SqlCommand("select * from  bulletins where datedepot ='" + dateTimePicker1.Value.ToString() + "'and login ='" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value)+"'", cnx);
+            string selectDateAsString = dateTimePicker1.Value.ToString("yyyyMMdd");
+            cmd = new SqlCommand("select * from  bulletins where datedepot ='" + selectDateAsString  + "'and login ='" + Convert.ToString(dataGridView1.CurrentRow.Cells[0].Value)+"'", cnx);
 
             Reader = cmd.ExecuteReader();
             table1.Load(Reader);
@@ -130,6 +131,11 @@ namespace projet
             this.Hide();
             loginpage log = new loginpage();
             log.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

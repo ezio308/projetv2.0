@@ -14,6 +14,7 @@ namespace projet
     public partial class loginpage : Form
     {
         SqlConnection cnx = new SqlConnection(@"Data Source=LAPTOP-NJ81HHSQ\SQLSERVER;Initial Catalog=dbdd;Integrated Security=True");
+       
         SqlCommand cmd = new SqlCommand();
         SqlDataReader Reader;
         public loginpage()

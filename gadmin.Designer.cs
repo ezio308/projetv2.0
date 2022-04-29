@@ -61,7 +61,7 @@ namespace projet
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(166, 54);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Imprimer rapport";
+            this.button2.Text = "Imprimer bulletin";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -109,7 +109,7 @@ namespace projet
             this.hOMEToolStripMenuItem.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hOMEToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
             this.hOMEToolStripMenuItem.Text = "HOME PAGE";
             this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
@@ -121,7 +121,7 @@ namespace projet
             this.hOMEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(889, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(889, 25);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 

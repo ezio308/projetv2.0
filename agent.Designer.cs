@@ -139,16 +139,17 @@ namespace projet
             this.hOMEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(889, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(889, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // hOMEToolStripMenuItem
             // 
             this.hOMEToolStripMenuItem.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hOMEToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
             this.hOMEToolStripMenuItem.Name = "hOMEToolStripMenuItem";
-            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 21);
+            this.hOMEToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
             this.hOMEToolStripMenuItem.Text = "HOME PAGE";
             this.hOMEToolStripMenuItem.Click += new System.EventHandler(this.hOMEToolStripMenuItem_Click);
             // 
